@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <Body>
-    <h2>Pig Latin</h2>
-  <script>
-let pigWord = prompt('Enter Word')
-let vowels = ('AEIOUaeiou')
 
-    if (pigWord == ('', ' ')){
-        document.write('input cannot be translated');
-      
+<head>
+</head>
+
+<Body>
+  <h2>Pig Latin</h2>
+  <script>
+    let pigWord = prompt('Enter Word')
+    let vowels = ('AEIOUaeiou')
+
+    if (pigWord == ('', ' ')) {
+      document.write('input cannot be translated');
+
     } else if (vowels.includes(pigWord[0])) {
       //if a word begins with one consonant, that letter is moved to the end and 'ay' is appended
       document.write(pigWord + 'way');
 
-    } else if (!vowels.includes(pigWord[0,1])) {
+    } else if (!vowels.includes(pigWord[0, 1])) {
       //if a word begins with two consonants, both letters are moved to the end and 'ay' is appended
-      let halfWord = pigWord[0];
-      let halfWord2 = pigWord.slice(0,2);
+      let halfWord = pigWord[0, 1];
+      let halfWord2 = pigWord.slice(2);
       document.write(halfWord2 + halfWord + 'ay');
-      
+
     } else {
       //if a word begins with one consonant, that letter is moved to the end and 'ay' is appended
       let halfWord = pigWord[0];
       let halfWord2 = pigWord.slice(1);
       document.write(halfWord2 + halfWord + 'ay');
-      
+
     }
   </script>
 </body>
+
 </html>
