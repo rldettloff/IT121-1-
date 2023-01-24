@@ -19,16 +19,18 @@
         }
 
         for (let i in names) {
-            document.write("Name: " + names[i]);
+            document.write(names[i] + " - " + scores[i] + "<br>");
         }
 
-        let lowest = Math.min(scores);
-        let highest = Math.max(scores);
+        let lowest = Math.min(...scores);
+        let highest = Math.max(...scores);
         let average = (scores.reduce((a, b) => a + b, 0)) / scores.length;
     //score + average score
 
         document.write("Lowest: " + lowest);
+        document.write("<br>");
         document.write("Highest: " + highest);
+        document.write("<br>");
         document.write("Average: " + average);
   </script>
 </body>
