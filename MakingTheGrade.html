@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<Body>
+  <h2>Making the Grade</h2>
+  <script>
+        var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+        let total = grades.split(", ");
+        let scores = [];
+        let names = [];
+
+        for (let i in total) {
+            let name = total[i].slice(0, total[i].indexOf("|"));
+            names.push(name.charAt(0).toUpperCase() + name.slice(1));
+            scores.push(parseInt(total[i].slice(-2)));
+        }
+
+        for (let i in names) {
+            document.write("Name: " + names[i]);
+        }
+
+        let lowest = Math.min(scores);
+        let highest = Math.max(scores);
+        let average = (scores.reduce((a, b) => a + b, 0)) / scores.length;
+    //score + average score
+
+        document.write("Lowest: " + lowest);
+        document.write("Highest: " + highest);
+        document.write("Average: " + average);
+  </script>
+</body>
+
+</html>
