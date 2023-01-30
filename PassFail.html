@@ -1,42 +1,57 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
+
 <body>
 
-<h1>Functions & validation</h1>
+  <h1>Functions & validation</h1>
 
-<form id="form1" action="#" onsubmit="return validateForm(this);">
-  first name: <input type="text" name="firstname"><br>
-  last name: <input type="text" name="lastname"><br>
-  password: <input type="text" name="password"><br>
+  <form id="form1" action="#" onsubmit="return validateForm(this);">
+    first name: <input type="text" name="firstname"><br>
+    last name: <input type="text" name="lastname"><br>
+    password: <input type="text" name="password"><br>
 
-  <button >Check</button>
-</form>
+    <button>Check</button>
+  </form>
 
-<hr><div id="message"></div>
+  <hr>
+  <div id="message"></div>
 
-<script>
+  <script>
 
-// add validatePassword function here
-function validatePassword
+    // add validatePassword function here
+    function validatePassword
 
-const validateForm = (myForm) => {
+  var password = myForm.password.value; // get password input
 
-  var firstname = myForm.firstname.value; // get text of firstname field
+    const validateForm = (myForm) => {
 
-  // update 'message' DIV with appropriate wording
-  $("#message").html("Button clicked");
+      var firstname = myForm.firstname.value;
+      var lastname = myForm.lastname.value;
+      // get text of firstname and lastname
 
-  /* Form validation code goes here
-  */
+      // update 'message' DIV with appropriate wording
+      $("#message").html("Saved");
 
-  return false; // prevent page reload
-}
+      validatePassword(myForm);
+      /* Form validation code goes here
+      */
+      if (firstname == "") {
+        document.write("Input Required")
+      }
+      if (lastname == "") {
+        document.write("Input Required")
+      }
+      //print message if user first last input is invalid
 
-</script>
+      return false; // prevent page reload
+    }
+
+  </script>
 
 </body>
+
 </html>
