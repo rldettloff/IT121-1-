@@ -23,9 +23,25 @@
   <script>
 
     // add validatePassword function here
-    function validatePassword
-
+    function validatePassword(myForm){
+      
   var password = myForm.password.value; // get password input
+      
+        if (/[a-z]/.test(password) == false)
+            document.write("Password must have one or more lowercase letter(s)")
+        else if (/[A-S]/.test(password) == false)
+            document.write("Password must have one or more Uppercase letter(s)")
+        else if(/[0-9]/.test(password) == false)
+            document.write("Password must have one or more Numbers")
+        else if (password.length < 8)
+            document.write("Password must contain 8 or more characters")
+        else
+            document.write("Password Saved")
+        }
+       
+    
+
+
 
     const validateForm = (myForm) => {
 
@@ -34,17 +50,17 @@
       // get text of firstname and lastname
 
       // update 'message' DIV with appropriate wording
-      $("#message").html("Saved");
+        $("#message").html("Saved");
 
-      validatePassword(myForm);
+        validatePassword(myForm);
       /* Form validation code goes here
       */
-      if (firstname == "") {
-        document.write("Input Required")
-      }
-      if (lastname == "") {
-        document.write("Input Required")
-      }
+       if (firstname == "") {
+          document.write("Input Required")
+        }
+       if (lastname == "") {
+          document.write("Input Required")
+       }
       //print message if user first last input is invalid
 
       return false; // prevent page reload
