@@ -25,17 +25,17 @@
       document.write(names[i] + " - " + grades2[i] + "<br>");
     }
 
-    let lowest = Math.min(...grades2);
-    let highest = Math.max(...grades2);
+    let lowestGrade = Math.min(...grades2);
+    let highestGrade = Math.max(...grades2);
     //Tried to use the Higher order function? took a lot of experimenting 
-    let average = (grades2.reduce((a, b) => a + b, 0)) / grades2.length;
+    let averageGrade = (grades2.reduce((a, b) => a + b, 0)) / grades2.length;
     //score + average score
 
-    document.write("Lowest: " + lowest);
+    document.write("Lowest: " + lowestGrade);
     document.write("<br>");
-    document.write("Highest: " + highest);
+    document.write("Highest: " + highestGrade);
     document.write("<br>");
-    document.write("Average: " + average);
+    document.write("Average: " + averageGrade);
   </script>
 </body>
 
