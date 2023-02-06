@@ -5,7 +5,24 @@
 </head>
 
 <Body>
-  <h2>RoboDealer</h2>
+<h2>RoboDealer</h2>
+<button onclick="dealHand();">Deal Hand</button>
+
+<hr><div id="card_hand"></div>
+
+<script>
+
+const dealHand = () => {
+
+  /* code to deal a card hand goes here */
+
+  // update 'card_hand' DIV with appropriate information
+  $("#card_hand").html("Button clicked");
+
+  return false; // prevent page reload
+}
+
+</script>
   <script>
     //list and split grade string
   
