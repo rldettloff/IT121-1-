@@ -12,31 +12,41 @@
 
 <script>
 
-  var suit = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];//list suits
-  var value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];//list card numbers
-  var deck = [];
+ const suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+const value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
 
+const deck = [];
 
-  for (var suitCounter = 0; suitCounter < 4; suitCounter++){ //create an array deck(deck of cards)
-    for (var valueCounter = 0; valueCounter < 13; valueCounter++) {
-      deck.push(value[valueCounter] + ' of ' + suit[suitCounter]);
-
-  
+for (const suit of suits) {
+    for (const value of value) {
+        const card = {
+            suit: suit,
+            face_value: face_value
+        }
+        deck.push(card)
     }
-  }
-
-function dealHand(); {
-  const hand = [];
-  for (let i = 0; i < 5; i++) {
-  let randomCard = Math.floor(Math.random(deck) * 52);
-  let card = deck[randomCard];  //push hand to array1 hand array
-  }
-  return hand;
 }
 
-// Deal 5 cards
-const hand1 = dealHand();
-console.log(hand1);
+
+function getRandomDeckIndex() {
+   return Math.floor(Math.random() * 52);
+}
+
+function getRandomCard(deck) {
+    const index = getRandomDeckIndex()
+    return deck[index]
+}
+
+function displayCard(card) {
+    console.log(card.value + "of" + card.suits);
+
+}
+console.log(deck);
+displayCard(getRandomCard(deck));
+displayCard(getRandomCard(deck));
+displayCard(getRandomCard(deck));
+displayCard(getRandomCard(deck));
+displayCard(getRandomCard(deck));
 
 $("#card_hand").html("Button clicked");
 
