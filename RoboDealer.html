@@ -12,22 +12,24 @@
 
 <script>
 
-  var suit = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
-  var value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+  var suit = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];//list suits
+  var value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];//list card numbers
   var deck = [];
 
-for (suit); {
- Math.floor(Math.random() * 52); 
+
+  for (var suitCounter = 0; suitCounter < 4; suitCounter++){ //create an array deck(deck of cards)
+    for (var valueCounter = 0; valueCounter < 13; valueCounter++) {
+      deck.push(value[valueCounter] + ' of ' + suit[suitCounter]);
 
   
     }
   }
-  console.log(deck);
 
-function dealHand = (){
+function dealHand(); {
   const hand = [];
-  for (let i = 0; i < 5; i += 1) {
-    hand.push(deck.pop());
+  for (let i = 0; i < 5; i++) {
+  let randomCard = Math.floor(Math.random(deck) * 52);
+  let card = deck[randomCard];  //push hand to array1 hand array
   }
   return hand;
 }
@@ -35,16 +37,10 @@ function dealHand = (){
 // Deal 5 cards
 const hand1 = dealHand();
 console.log(hand1);
-  
 
-  /* code to deal a card hand goes here */
+$("#card_hand").html("Button clicked");
 
-  // update 'card_hand' DIV with appropriate information
-  $("#card_hand").html("Button clicked");
-
-  return false; // prevent page reload
-}
-  </script>
+</script>
 </body>
 
 </html>
