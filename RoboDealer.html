@@ -6,13 +6,14 @@
 
 <Body>
 <h2>RoboDealer</h2>
-<button onclick="dealHand();">Deal Hand</button>
+<button onclick="dealHand()">Deal Hand</button>
 
 <hr><div id="card_hand"></div>
 
 <script>
-
- const suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+const dealHand = () => {
+  
+const suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
 const value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
 
 const deck = [];
@@ -26,8 +27,6 @@ for (const suit of suits) {
         deck.push(card)
     }
 }
-
-
 function getRandomDeckIndex() {
    return Math.floor(Math.random() * 52);
 }
@@ -39,7 +38,7 @@ function getRandomCard(deck) {
 
 function displayCard(card) {
     console.log(card.value + "of" + card.suits);
-
+}
 }
 console.log(deck);
 displayCard(getRandomCard(deck));
@@ -49,6 +48,8 @@ displayCard(getRandomCard(deck));
 displayCard(getRandomCard(deck));
 
 $("#card_hand").html("Button clicked");
+  
+}
 
 </script>
 </body>
