@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
 
 <Body>
@@ -11,22 +12,10 @@
 <hr><div id="card_hand"></div>
 
 <script>
-const dealHand = () => {
-  
+
 const suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
-const value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+const values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
 
-const deck = [];
-
-for (const suit of suits) {
-    for (const value of value) {
-        const card = {
-            suit: suit,
-            face_value: face_value
-        }
-        deck.push(card)
-    }
-}
 function getRandomDeckIndex() {
    return Math.floor(Math.random() * 52);
 }
@@ -34,20 +23,33 @@ function getRandomDeckIndex() {
 function getRandomCard(deck) {
     const index = getRandomDeckIndex()
     return deck[index]
+} 
+  const deck = [];
+
+for (const suit of suits) {
+    for (const value of values) {
+        const card = {
+            suit: suit,
+            value: value,
+        }
+        deck.push(suit + "of" + value);
+          }
+}
+const dealHand = () => {
+  
+  const hand = [];
+  for (let i = 0; i < 5; i++) {
+    hand = getRandomCard(deck)
+    hand.push();
+  }
+  return hand;
 }
 
-function displayCard(card) {
-    console.log(card.value + "of" + card.suits);
-}
-}
-console.log(deck);
-displayCard(getRandomCard(deck));
-displayCard(getRandomCard(deck));
-displayCard(getRandomCard(deck));
-displayCard(getRandomCard(deck));
-displayCard(getRandomCard(deck));
+// Deal 5 cards
+const hand1 = dealHand();
+console.log(hand1);
 
-$("#card_hand").html("Button clicked");
+$("#card_hand").text(hand1);
   
 }
 

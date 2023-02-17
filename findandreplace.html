@@ -54,15 +54,15 @@ var severe = $(".severe")
 //3. Find the element with an id of "warnings"
 var warnings = $("#warnings")
 //4. Find the <li> tags located inside of the element with ID of "warnings"
-var warningItems = $("#warnings > li")
+var warningItems = $("#warnings li")
 //5. Find the <ul> tag that contains an element with a class of "mild"
-var ul = $(".mild > ul")
+var ul = $("ul > .mild")
 //6. Find all spans with a "data-x" attribute
-var dataX = $([data-x]);
+var dataX = $("[spans='data-x']")
 //7. Change the elements with a class of "purple" to have a background of "magenta"
-$(".purple").css("background-color", "magenta");
+$(".purple").css("background-color", "magenta")
 //8. Change the contents of the element with class "continent" to contain "Australia"
-$(".continent").css()
+$(".continent").append("Australia")
 //9. Add a class of "stripe" to all odd-numbered list items inside section tags
 $("stripe:odd")
 //10. Remove the class of "facts" from the <main> element
