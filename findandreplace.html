@@ -58,15 +58,17 @@ var warningItems = $("#warnings li")
 //5. Find the <ul> tag that contains an element with a class of "mild"
 var ul = $("ul:has(.mild)")
 //6. Find all spans with a "data-x" attribute
-var dataX = $("span[data-x]")
+var dataX = document.querySelectorAll("span[data-x]");
 //7. Change the elements with a class of "purple" to have a background of "magenta"
 $(".purple").css("background-color", "magenta")
 //8. Change the contents of the element with class "continent" to contain "Australia"
-$(".continent").append("Australia")
+different = document.getElementsByClassName("continent")[0];
+
+different.innerHTML = "Australia"
 //9. Add a class of "stripe" to all odd-numbered list items inside section tags
-$("stripe:odd")
+$("li:odd").addClass("stripe");
 //10. Remove the class of "facts" from the <main> element
-      
+$("main").removeClass("facts");    
 
 
 </script>
