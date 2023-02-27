@@ -13,7 +13,13 @@
 
     <body>
         <div id="buttons"></div>
-        <table border='1'>
+ 
+        <button id="grif" onclick="getClickID(this.id)">Gryffindor</button>
+        <button id="slith" onclick="getClickID(this.id)">Slytherin</button>
+        <button id="raven" onclick="getClickID(this.id)">Ravenclaw</button>
+        <button id="huffle" onclick="getClickID(this.id)">Hufflepuff</button>
+        <button id="reset" onclick="window.location.reload()">reset</button>
+             <table border='1'>
             <tr>
                 <th>name</th>
                 <th>role</th>
@@ -22,7 +28,6 @@
                 <th>alignment</th>
             </tr>
         </table>
-        <button>reset</button>
     </body>
         
         <script>
@@ -58,6 +63,8 @@
           } //create a table that contains character and their attributes
           
           document.body.append(table);
+          
+          $("tr:odd").css("background-color", "#f2f2f2");
         
         /*
         - add a button for each 'house' value
