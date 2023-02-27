@@ -45,7 +45,20 @@
         ];
 
         $(document).ready(function(){
+        var column_headers = ["name", "role", "house", "gender", "alignment"];
+        var table = document.createElement("TABLE"); //Table column headers and table element creation
 
+          for (var i = 0; i < characters.length; i++) {
+            var row = table.insertRow(i);
+            row.insertCell(0).innerHTML = characters[i].name;
+            row.insertCell(1).innerHTML = characters[i].role;
+            row.insertCell(2).innerHTML = characters[i].house;
+            row.insertCell(3).innerHTML = characters[i].gender;
+            row.insertCell(4).innerHTML = characters[i].alignment;
+          } //create a table that contains character and their attributes
+          
+          document.body.append(table);
+        
         /*
         - add a button for each 'house' value
         - add table row for each character
