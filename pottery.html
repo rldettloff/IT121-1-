@@ -64,7 +64,59 @@
           
           document.body.append(table);
           
-          $("tr:odd").css("background-color", "#f2f2f2");
+          $("tr:even").css("background-color", "orange");
+          
+        $("#grif").click(function(){
+            $("tr:eq(2)").hide();
+            $("tr:eq(6)").hide();
+            $("tr:eq(9)").hide();
+            $("tr:eq(11)").hide();
+            $("tr:eq(12)").hide();
+            $("tr:eq(13)").hide();
+            $("tr:eq(14)").hide();
+        }); //this hides the entire row where characters are not in the same house
+        $("#slith").click(function(){
+            $("tr:eq(1)").hide();
+            $("tr:eq(2)").hide();
+            $("tr:eq(3)").hide();
+            $("tr:eq(4)").hide();
+            $("tr:eq(5)").hide();
+            $("tr:eq(6)").hide();
+            $("tr:eq(7)").hide();
+            $("tr:eq(8)").hide();
+            $("tr:eq(10)").hide();
+            $("tr:eq(11)").hide();
+        }); //this hides the entire row where characters are not in the same house
+        $("#huffle").click(function(){
+            $("tr:eq(1)").hide();
+            $("tr:eq(3)").hide();
+            $("tr:eq(4)").hide();
+            $("tr:eq(5)").hide();
+            $("tr:eq(6)").hide();
+            $("tr:eq(7)").hide();
+            $("tr:eq(8)").hide();
+            $("tr:eq(9)").hide();
+            $("tr:eq(10)").hide();
+            $("tr:eq(11)").hide();
+            $("tr:eq(12)").hide();
+            $("tr:eq(13)").hide();
+            $("tr:eq(14)").hide();
+        }); 
+        $("#raven").click(function(){
+            $("tr:eq(1)").hide();
+            $("tr:eq(2)").hide();
+            $("tr:eq(3)").hide();
+            $("tr:eq(4)").hide();
+            $("tr:eq(5)").hide();
+            $("tr:eq(6)").hide();
+            $("tr:eq(7)").hide();
+            $("tr:eq(8)").hide();
+            $("tr:eq(9)").hide();
+            $("tr:eq(10)").hide();
+            $("tr:eq(12)").hide();
+            $("tr:eq(13)").hide();
+            $("tr:eq(14)").hide();
+        }); /
         
         /*
         - add a button for each 'house' value
