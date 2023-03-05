@@ -66,7 +66,7 @@
           
           $("tr:even").css("background-color", "orange");
           
-        $("#grif").click(function(){
+        $("#grif").click(function(){ //hide the row of griffendor house
             $("tr:eq(2)").hide();
             $("tr:eq(6)").hide();
             $("tr:eq(9)").hide();
@@ -74,8 +74,8 @@
             $("tr:eq(12)").hide();
             $("tr:eq(13)").hide();
             $("tr:eq(14)").hide();
-        }); //this hides the entire row where characters are not in the same house
-        $("#slith").click(function(){
+        }); 
+        $("#slith").click(function(){//hide the row of slitherin house
             $("tr:eq(1)").hide();
             $("tr:eq(2)").hide();
             $("tr:eq(3)").hide();
@@ -86,8 +86,8 @@
             $("tr:eq(8)").hide();
             $("tr:eq(10)").hide();
             $("tr:eq(11)").hide();
-        }); //this hides the entire row where characters are not in the same house
-        $("#huffle").click(function(){
+        }); 
+        $("#huffle").click(function(){//hide the row of hufflepuff house
             $("tr:eq(1)").hide();
             $("tr:eq(3)").hide();
             $("tr:eq(4)").hide();
@@ -102,7 +102,7 @@
             $("tr:eq(13)").hide();
             $("tr:eq(14)").hide();
         }); 
-        $("#raven").click(function(){
+        $("#raven").click(function(){//hide the row of ravenclaw house
             $("tr:eq(1)").hide();
             $("tr:eq(2)").hide();
             $("tr:eq(3)").hide();
