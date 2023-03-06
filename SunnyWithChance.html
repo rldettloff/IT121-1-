@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
+ <head>
   </head>
   <body>
     <h1>Weather!</h1>
@@ -11,39 +9,51 @@
     <input type="text" id="city-input">
     <button onclick="getWeather()">Get Weather</button>
 
-    <script>
-      function renderWeather(weather) {
-        console.log(weather);
-        var resultsContainer = document.querySelector("#weather-results")
-        //create h2 for name
-        var city = document.createElement("h2");
-        city.textContent = weather.name;
-        resultsContainer.append(city);
-        //create p tag for humidity description temperature(min/max) and weather icon
-        var temp = document.createElement("p");
-        temp.textContent = "Temperature: " + weather.main.temp + " F"
-        resultsContainer.append(temp);
-         //p tag for humidity
-        var humidity = document.createElement("p");
-        humidity.textContent = "Humidity: " + weather.main.humidity + "%"
-        resultsContainer.append(humidity);
-        //p tag for description
-        var description = document.createElement("p");
-        description.textContent = "Description: " + weather.weather[0].description
-        resultsContainer.append(description);
-      }
-      
-      function fetchWeather(query) {
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + query + ",US&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
-        .then((response) => response.json())
-        .then((data) => renderWeather(data))
-        .catch(() => alert("City not found or API error"));
-      }
+<script>
+  function renderWeather(weather) {
+    console.log(weather);
+    var resultsContainer = document.querySelector("#weather-results")
+    //create h2 for name
+    var city = document.createElement("h2");
+    city.textContent = weather.name;
+    resultsContainer.append(city);
+    //create p tag for humidity description temperature(min/max) and weather icon
+    var temp = document.createElement("p");
+    temp.textContent = "Temperature: " + weather.main.temp + " F"
+    resultsContainer.append(temp);
 
-      function getWeather() {
-        var input = document.querySelector("#city-input").value;
-        fetchWeather(input);
-      }
-    </script>
+    var humidity = document.createElement("p");
+    humidity.textContent = "Humidity: " + weather.main.humidity + "%"
+    resultsContainer.append(humidity);
+
+    var description = document.createElement("p");
+    description.textContent = "Description: " + weather.weather[0].description
+    resultsContainer.append(description);
+    
+    var icon = document.createElement("img");
+    var iconCode = weather.weather[0].icon;
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
+    icon.src = iconUrl;
+    resultsContainer.append(icon);
+
+    var date = document.createElement("p");
+    var currentDate = new Date().toLocaleDateString();
+    date.textContent = "Date: " + currentDate;
+    resultsContainer.append(date);
+
+  }
+  
+  function fetchWeather(query) {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + query + ",US&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
+    .then((response) => response.json())
+    .then((data) => renderWeather(data))
+    .catch(() => alert("City not found or API error"));
+  }
+
+  function getWeather() {
+    var input = document.querySelector("#city-input").value;
+    fetchWeather(input);
+  }
+</script>
   </body>
 </html>
