@@ -6,6 +6,11 @@
     <h1>Weather!</h1>
 
     <div id="weather-results"></div>
+
+    <label for="city-input">Enter city name:</label>
+    <input type="text" id="city-input">
+    <button onclick="getWeather()">Get Weather</button>
+
     <script>
       function renderWeather(weather) {
         console.log(weather);
@@ -18,23 +23,27 @@
         var temp = document.createElement("p");
         temp.textContent = "Temperature: " + weather.main.temp + " F"
         resultsContainer.append(temp);
-
+         //p tag for humidity
         var humidity = document.createElement("p");
         humidity.textContent = "Humidity: " + weather.main.humidity + "%"
         resultsContainer.append(humidity);
-
+        //p tag for description
         var description = document.createElement("p");
         description.textContent = "Description: " + weather.weather[0].description
         resultsContainer.append(description);
       }
       
       function fetchWeather(query) {
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + query + ",US&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
         .then((response) => response.json())
-        .then((data) => renderWeather(data));
+        .then((data) => renderWeather(data))
+        .catch(() => alert("City not found or API error"));
       }
 
-      fetchWeather("Seattle");
+      function getWeather() {
+        var input = document.querySelector("#city-input").value;
+        fetchWeather(input);
+      }
     </script>
   </body>
 </html>
