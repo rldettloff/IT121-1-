@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chocolate Chip Cookie Drawing</title>
+  </head>
+  <body>
+    <h1>This is a Cookie...Chocolate Chips Are melted?</h1>
+    <canvas id="cookie" width="400" height="400"></canvas>
+    <script>
+      const canvas = document.getElementById('cookie');
+      const cookie = canvas.getContext('2d');
+
+      // Set stroke and fill styles
+      cookie.strokeStyle = 'brown';
+      cookie.fillStyle = 'tan';
+
+      function drawCookie() {
+        const now = new Date();
+        const isRect = now.getSeconds() % 4 === 0;
+
+        // Clear canvas
+        cookie.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw cookie outline
+        cookie.save();
+        if (isRect) {
+          cookie.fillRect(100, 100, 200, 200);
+        } else {
+          cookie.beginPath();
+          cookie.arc(200, 200, 150, 0, 2 * Math.PI);
+          cookie.closePath();
+          cookie.stroke();
+          cookie.fill();
+        }
+        cookie.restore();
+
+        // Draw chocolate chips
+        cookie.fillStyle = 'chocolate';
+        cookie.beginPath();
+        cookie.arc(125, 150, 20, 0, 2 * Math.PI);
+        cookie.closePath();
+        cookie.fill();
+        cookie.beginPath();
+        cookie.arc(260, 150, 20, 0, 2 * Math.PI);
+        cookie.closePath();
+        cookie.fill();
+        cookie.beginPath();
+        cookie.arc(150, 280, 20, 0, 2 * Math.PI);
+        cookie.closePath();
+        cookie.fill();
+        cookie.beginPath();
+        cookie.arc(275, 220, 20, 0, 2 * Math.PI);
+        cookie.closePath();
+        cookie.fill();
+      }
+
+      // Call drawCookie every 2 seconds
+      setInterval(drawCookie, 2);
+    </script>
+  </body>
+</html>
