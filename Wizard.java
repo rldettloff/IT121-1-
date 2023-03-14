@@ -53,15 +53,15 @@ class Wizard {
         this.gender = gender;
         this.age = age;
     }
-
+//list of spells and print statement to cast spells
     public void castSpell() {
         String[] spells = {"confringo", "explelliarmis", "stupify"};
         String spell = spells[new Random().nextInt(spells.length)];
         System.out.println(name + " casts " + spell + "!");
     }
-
+//list of potions and print statements to brew potions
     public void brewPotion() {
-        String[] potions = {"Healing", "Invisibility", "Strength"};
+        String[] potions = {"polyjuice potion", "Amortientia", "Elixir of life"};
         String potion = potions[new Random().nextInt(potions.length)];
         System.out.println(name + " brews a " + potion + " potion.");
     }
