@@ -10,18 +10,25 @@
     <hr>
     <div id="card_hand"></div>
     <script>
+      class Card { //create card object
+        constructor(suit, value) {
+          this.suit = suit;
+          this.value = value;
+        }
+
+        toString() {
+          return this.value + " of " + this.suit; //create card with value and suit
+        }
+      }
+
       const suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
       const values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-      const deck = [];
+      const deck = []; //create deck array
 
       for (const suit of suits) {
         for (const value of values) {
-          const card = {
-            suit: suit,
-            value: value,
-          }
-          deck.push(value + " of " + suit);
-          //Create deck and add "of" in between the value and suit.
+          const card = new Card(suit, value);
+          deck.push(card);
         }
       }
 
@@ -37,7 +44,8 @@
       function dealHand() {
         const hand = [];
         for (let i = 0; i < 5; i++) {
-          hand.push(getRandomCard(deck));
+          const card = getRandomCard(deck);
+          hand.push(card.toString());
         }
         $("#card_hand").text(hand.join(", "));
       }
