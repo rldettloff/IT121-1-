@@ -1,59 +1,74 @@
  <head>
-  </head>
-  <body>
-    <h1>Weather!</h1>
+</head>
+<body>
+  <h1>Weather!</h1>
 
-    <div id="weather-results"></div>
+  <div id="weather-results"></div>
 
-    <label for="city-input">Enter city name:</label>
-    <input type="text" id="city-input">
-    <button onclick="getWeather()">Get Weather</button>
+  <label for="city-input">Enter city name:</label>
+  <input type="text" id="city-input">
+  <button onclick="getWeather()">Get Weather</button>
 
-<script>
-  function renderWeather(weather) {
-    console.log(weather);
-    var resultsContainer = document.querySelector("#weather-results")
-    //Added The Date
-    var date = document.createElement("p");
-    var currentDate = new Date().toLocaleDateString();
-    date.textContent = "Date: " + currentDate;
-    resultsContainer.append(date);
-    //create h2 for name
+  <script>
+   function renderWeather(weather) {
+  console.log(weather);
+  var resultsContainer = document.querySelector("#weather-results");
+  var groupedForecasts = {};
+  // group the forecasts by date
+  for (var i = 0; i < weather.list.length; i++) {
+    var forecast = weather.list[i];
+    var date = new Date(forecast.dt * 1000).toLocaleDateString();
+    if (!groupedForecasts[date]) {
+      groupedForecasts[date] = forecast;
+    }
+  }
+  // loop through each day of the forecast
+  for (var date in groupedForecasts) {
+    var forecast = groupedForecasts[date];
+    // create a div to hold the forecast data
+    var forecastDiv = document.createElement("div");
+    forecastDiv.classList.add("forecast");
+    // create a p tag to display the date
+    var dateElem = document.createElement("p");
+    dateElem.textContent = "Date: " + date;
+    forecastDiv.append(dateElem);
+    // create h2 for name
     var city = document.createElement("h2");
-    city.textContent = weather.name;
-    resultsContainer.append(city);
-    //added temp with p tag
+    city.textContent = weather.city.name;
+    forecastDiv.append(city);
+    // create p tag for temperature
     var temp = document.createElement("p");
-    temp.textContent = "Temperature: " + weather.main.temp + " F"
-    resultsContainer.append(temp);
-//create p tag for humidity description temperature(min/max) and weather icon
+    temp.textContent = "Temperature: " + forecast.main.temp + " F";
+    forecastDiv.append(temp);
+    // create p tag for humidity
     var humidity = document.createElement("p");
-    humidity.textContent = "Humidity: " + weather.main.humidity + "%"
-    resultsContainer.append(humidity);
-//added description with p tag
+    humidity.textContent = "Humidity: " + forecast.main.humidity + "%";
+    forecastDiv.append(humidity);
+    // create p tag for description
     var description = document.createElement("p");
-    description.textContent = "Description: " + weather.weather[0].description
-    resultsContainer.append(description);
-    //added image of weather
+    description.textContent = "Description: " + forecast.weather[0].description;
+    forecastDiv.append(description);
+    // create image of weather
     var icon = document.createElement("img");
-    var iconCode = weather.weather[0].icon;
+    var iconCode = forecast.weather[0].icon;
     var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
     icon.src = iconUrl;
-    resultsContainer.append(icon);
-
+    forecastDiv.append(icon);
+    // add the forecast div to the results container
+    resultsContainer.append(forecastDiv);
   }
+}
   
-  function fetchWeather(query) {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + query + ",US&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
-    .then((response) => response.json())
-    .then((data) => renderWeather(data))
-    .catch(() => alert("City not found or API error"));
-  }
+    function fetchWeather(query) {
+      fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + query + ",US&units=imperial&appid=1a55f3a88e7f3f4ca9f5232911b4220b")
+        .then((response) => response.json())
+        .then((data) => renderWeather(data))
+        .catch(() => alert("City not found or API error"));
+    }
 
-  function getWeather() {
-    var input = document.querySelector("#city-input").value;
-    fetchWeather(input);
-  }
-</script>
-  </body>
-</html>
+    function getWeather() {
+      var input = document.querySelector("#city-input").value;
+      fetchWeather(input);
+    }
+  </script>
+</body>
